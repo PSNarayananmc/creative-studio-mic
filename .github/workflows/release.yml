@@ -27,14 +27,14 @@ jobs:
       - name: Native and retained legacy regression tests
         run: |
           set -eu
-          mkdir -p evidence
-          chmod 777 evidence
+          mkdir -p evidence/ci
+          chmod 777 evidence/ci
           cmake -S . -B build-native -DCMAKE_BUILD_TYPE=Release
           cmake --build build-native -j2
           (cd build-native && ctest --output-on-failure)
           python3 tests/measure_peaks.py
-          runuser -u studio -- env VC_TEST_OBS=1 VC_SOAK_SECONDS=180 python3 "$PWD/tests/integration_native.py"
-          runuser -u studio -- xvfb-run -a "$PWD/build-native/voicecraft-gui-test"
+          runuser -u studio -- env VC_EVIDENCE_DIR="$PWD/evidence/ci" VC_TEST_OBS=1 VC_SOAK_SECONDS=180 python3 "$PWD/tests/integration_native.py"
+          runuser -u studio -- env VC_EVIDENCE_DIR="$PWD/evidence/ci" xvfb-run -a "$PWD/build-native/voicecraft-gui-test"
           ./scripts/build.sh
           python3 -m unittest discover -s tests -v
       - name: Build and install native package
