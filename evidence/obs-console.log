@@ -1,0 +1,117 @@
+_XSERVTransmkdir: Owner of /tmp/.X11-unix should be set to root
+error: Could not create dbus connection: /usr/bin/dbus-launch terminated abnormally without any error message
+Attempted path: share/obs/obs-studio/locale/en-US.ini
+Attempted path: /usr/share/obs/obs-studio/locale/en-US.ini
+Attempted path: share/obs/obs-studio/themes/Dark.qss
+Attempted path: /usr/share/obs/obs-studio/themes/Dark.qss
+info: Command Line Arguments: --startrecording --profile VoiceCraftTest --collection VoiceCraftTest --disable-updater
+info: CPU Name: AMD EPYC 9V74 80-Core Processor
+info: CPU Speed: 2596.132MHz
+info: Physical Cores: 5, Logical Cores: 5
+info: Physical Memory: 34087MB Total, 30990MB Free
+info: Kernel Version: Linux 6.18.55
+info: Distribution: "Ubuntu" "20.04"
+info: Window System: X11.0, Vendor: The X.Org Foundation, Version: 1.20.13
+info: Portable mode: false
+QMetaObject::connectSlotsByName: No matching signal for on_advAudioProps_clicked()
+QMetaObject::connectSlotsByName: No matching signal for on_advAudioProps_destroyed()
+QMetaObject::connectSlotsByName: No matching signal for on_actionGridMode_triggered()
+QMetaObject::connectSlotsByName: No matching signal for on_program_customContextMenuRequested(QPoint)
+Attempted path: share/obs/obs-studio/themes/Dark/no_sources.svg
+Attempted path: /usr/share/obs/obs-studio/themes/Dark/no_sources.svg
+info: OBS 25.0.3+dfsg1-2 (linux)
+info: ---------------------------------
+info: ---------------------------------
+info: audio settings reset:
+	samples per sec: 48000
+	speakers:        1
+info: ---------------------------------
+info: Initializing OpenGL...
+info: Loading up OpenGL on adapter Mesa/X.org llvmpipe (LLVM 12.0.0, 256 bits)
+info: OpenGL loaded successfully, version 4.5 (Core Profile) Mesa 21.2.6, shading language 4.50
+info: ---------------------------------
+info: video settings reset:
+	base resolution:   640x360
+	output resolution: 640x360
+	downscale filter:  Bicubic
+	fps:               10/1
+	format:            NV12
+	YUV mode:          601/Partial
+info: NV12 texture support not available
+info: Audio monitoring device:
+	name: Default
+	id: default
+info: ---------------------------------
+warning: Failed to load 'en-US' text for module: 'decklink-ouput-ui.so'
+libDeckLinkAPI.so: cannot open shared object file: No such file or directory
+warning: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+info: No blackmagic support
+error: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: cannot open shared object file: No such file or directory
+
+info: FFMPEG VAAPI supported
+error: os_dlopen(libvlc.so.5->libvlc.so.5): libvlc.so.5: cannot open shared object file: No such file or directory
+
+info: Couldn't find VLC installation, VLC video source disabled
+info: ---------------------------------
+info:   Loaded Modules:
+info:     vlc-video.so
+info:     text-freetype2.so
+info:     rtmp-services.so
+info:     obs-x264.so
+info:     obs-transitions.so
+info:     obs-outputs.so
+info:     obs-filters.so
+info:     obs-ffmpeg.so
+info:     linux-v4l2.so
+info:     linux-pulseaudio.so
+info:     linux-jack.so
+info:     linux-decklink.so
+info:     linux-capture.so
+info:     linux-alsa.so
+info:     image-source.so
+info:     frontend-tools.so
+info:     decklink-ouput-ui.so
+info: ---------------------------------
+info: ==== Startup complete ===============================================
+error: Service '' not found
+info: All scene data cleared
+info: ------------------------------------------------
+info: pulse-input: Server name: 'pulseaudio 13.99.1'
+info: pulse-input: Audio format: s16le, 48000 Hz, 1 channels
+info: pulse-input: Started recording from 'voicecraft_source_76da7f1cce69496ba3d34782f671e8b2'
+info: Switched to scene 'VoiceCraft test scene'
+info: Starting recording due to command line parameter
+info: ------------------------------------------------
+info: Loaded scenes:
+info: - scene 'VoiceCraft test scene':
+info:     - source: 'VoiceCraft Studio Microphone' (pulse_input_capture)
+info: ------------------------------------------------
+info: ---------------------------------
+info: [x264 encoder: 'simple_h264_stream'] preset: veryfast
+info: [x264 encoder: 'simple_h264_stream'] settings:
+	rate_control: CBR
+	bitrate:      300
+	buffer size:  300
+	crf:          0
+	fps_num:      10
+	fps_den:      1
+	width:        640
+	height:       360
+	keyint:       250
+
+info: ---------------------------------
+info: [FFmpeg aac encoder: 'simple_aac'] bitrate: 128, channels: 1, channel_layout: 4
+
+info: ==== Recording Start ===============================================
+info: [ffmpeg muxer: 'simple_file_output'] Writing file '/tmp/vc-native-__l_8ahp/2026-10-20 07-17-30.mkv'...
+warning: [rtmp-services plugin] Remote update of URL "https://obsproject.com/obs2_update/rtmp-services/package.json" failed: server certificate verification failed. CAfile: none CRLfile: none
+[matroska @ 0x5629bd41dcc0] Using AVStream.codec to pass codec parameters to muxers is deprecated, use AVStream.codecpar instead.
+[matroska @ 0x5629bd41dcc0] Using AVStream.codec to pass codec parameters to muxers is deprecated, use AVStream.codecpar instead.
+info: Stopping recording due to hotkey
+info: [ffmpeg muxer: 'simple_file_output'] Output of file '/tmp/vc-native-__l_8ahp/2026-10-20 07-17-30.mkv' stopped
+info: Output 'simple_file_output': stopping
+info: Output 'simple_file_output': Total frames output: 148
+info: Output 'simple_file_output': Total drawn frames: 170
+info: ==== Recording Stop ================================================
+[aac @ 0x564f4450ba80] Qavg: 65334.793
+[aac @ 0x564f4450ba80] 2 frames left in the queue on closing

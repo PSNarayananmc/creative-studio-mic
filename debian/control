@@ -1,0 +1,12 @@
+Source: voicecraft-studio
+Section: sound
+Priority: optional
+Maintainer: PSNarayananmc <PSNarayananmc@users.noreply.github.com>
+Build-Depends: debhelper, cmake, qtbase5-dev, libpulse-dev
+Standards-Version: 4.5.0
+
+Package: voicecraft-studio
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}, pulseaudio-utils, ffmpeg
+Description: Native offline microphone studio
+ Native Qt microphone processing and virtual audio routing for OBS.

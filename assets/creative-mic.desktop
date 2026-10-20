@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Creative Mic
+Comment=Offline microphone noise suppression
+Exec=creative-mic
+Icon=creative-mic
+Terminal=false
+Categories=AudioVideo;Audio;
+StartupNotify=true

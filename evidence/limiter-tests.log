@@ -1,0 +1,4 @@
+near_nyquist -5.0 dBTP
+fullscale_random -3.9 dBTP
+alternating_fullscale -4.1 dBTP
+transients -4.9 dBTP

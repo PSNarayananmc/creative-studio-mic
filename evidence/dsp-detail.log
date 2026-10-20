@@ -1,0 +1,8 @@
+PASS silence
+Noise power ratio 0.205346
+PASS randomized overload, finite output, -3 dBFS sample ceiling
+Input contrast 24.44 dB; output 17.81 dB
+PASS compressor reduces dynamics
+PASS all presets and smoothed transitions
+PASS A/B aligned 720-sample delay
+DSP tests completed in 0.279 seconds

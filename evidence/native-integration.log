@@ -1,0 +1,19 @@
+PASS: actual virtual source name, physical-source enumeration and feedback exclusion
+Delivered 99504 float PCM samples; peak 0.132324
+PASS: processed audio delivered through native PulseAudio virtual microphone
+PASS: per-user duplicate-instance protection
+PASS: SIGINT removes only owned modules
+PASS: repeated START/STOP and SIGTERM cleanup
+PASS: selected source removal/reappearance automatically reconnects
+PASS: audio server restart and module-ID reuse recovery
+Headless RSS warm 21484 KiB -> 21508 KiB (host CPU, not J1800)
+PASS: bounded-memory synthetic soak below 100 MB
+PASS: system default microphone unchanged
+OBS source-outputs: 0	0	-	module-remap-source.c	s16le 1ch 48000Hz
+1	2	-	module-remap-source.c	s16le 1ch 48000Hz
+2	1	25	protocol-native.c	float32le 1ch 48000Hz
+3	3	31	protocol-native.c	s16le 1ch 48000Hz
+
+OBS recorded 696320 samples; decoded peak 0.133219
+PASS: OBS PulseAudio source records processed audio into an actual MKV
+PASS: final owned-module cleanup

@@ -1,0 +1,11 @@
+{
+  "host_only": true,
+  "hardware_latency_measured": false,
+  "metric_rows": 210,
+  "active_signal_rows": 22,
+  "active_dsp_percent_median": 2.8572933673858643,
+  "active_server_buffer_ms_median": 21.035500526428223,
+  "maximum_reported_underruns": 0,
+  "algorithmic_latency_ms": 15,
+  "note": "Server buffering is timing feedback, not hardware round-trip. Soak includes synthetic signal and silence."
+}

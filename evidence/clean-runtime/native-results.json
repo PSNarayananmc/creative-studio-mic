@@ -1,0 +1,23 @@
+{
+  "passed": [
+    "actual virtual source name, physical-source enumeration and feedback exclusion",
+    "processed audio delivered through native PulseAudio virtual microphone",
+    "per-user duplicate-instance protection",
+    "SIGINT removes only owned modules",
+    "repeated START/STOP and SIGTERM cleanup",
+    "selected source removal/reappearance automatically reconnects",
+    "audio server restart and module-ID reuse recovery",
+    "bounded-memory synthetic soak below 100 MB",
+    "system default microphone unchanged",
+    "final owned-module cleanup"
+  ],
+  "pcm_samples": 99624,
+  "sample_peak": 0.13232421875,
+  "rss_kib": [
+    21580,
+    21596
+  ],
+  "limitations": [
+    "Synthetic source; no USB hardware, target J1800, or physical round-trip measurement."
+  ]
+}

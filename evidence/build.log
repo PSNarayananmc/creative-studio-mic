@@ -1,0 +1,39 @@
+[  2%] Automatic MOC for target rnnoise
+[  2%] Built target rnnoise_autogen
+[ 25%] Built target rnnoise
+[ 28%] Automatic MOC for target voicecraft-dsp
+[ 28%] Built target voicecraft-dsp_autogen
+Scanning dependencies of target voicecraft-dsp
+[ 31%] Building CXX object CMakeFiles/voicecraft-dsp.dir/native/dsp.cpp.o
+[ 34%] Linking CXX static library libvoicecraft-dsp.a
+[ 37%] Built target voicecraft-dsp
+[ 40%] Automatic MOC for target voicecraft-gui-test
+[ 42%] Automatic MOC for target voicecraft-pcm
+[ 42%] Built target voicecraft-pcm_autogen
+[ 45%] Automatic MOC for target voicecraft-studio
+[ 45%] Built target voicecraft-studio_autogen
+[ 48%] Automatic MOC for target voicecraft-dsp-test
+[ 48%] Built target voicecraft-dsp-test_autogen
+Scanning dependencies of target voicecraft-pcm
+[ 51%] Building CXX object CMakeFiles/voicecraft-pcm.dir/native/pcm.cpp.o
+[ 51%] Built target voicecraft-gui-test_autogen
+Scanning dependencies of target voicecraft-studio
+[ 54%] Building CXX object CMakeFiles/voicecraft-studio.dir/voicecraft-studio_autogen/mocs_compilation.cpp.o
+[ 57%] Linking CXX executable voicecraft-pcm
+[ 60%] Built target voicecraft-pcm
+Scanning dependencies of target voicecraft-dsp-test
+[ 62%] Building CXX object CMakeFiles/voicecraft-dsp-test.dir/native/test_dsp.cpp.o
+[ 65%] Linking CXX executable voicecraft-dsp-test
+[ 68%] Built target voicecraft-dsp-test
+Scanning dependencies of target voicecraft-gui-test
+[ 71%] Building CXX object CMakeFiles/voicecraft-gui-test.dir/voicecraft-gui-test_autogen/mocs_compilation.cpp.o
+[ 74%] Building CXX object CMakeFiles/voicecraft-studio.dir/native/main.cpp.o
+[ 77%] Building CXX object CMakeFiles/voicecraft-gui-test.dir/native/test_gui.cpp.o
+[ 80%] Building CXX object CMakeFiles/voicecraft-studio.dir/native/audio.cpp.o
+[ 82%] Building CXX object CMakeFiles/voicecraft-gui-test.dir/native/window.cpp.o
+[ 85%] Building CXX object CMakeFiles/voicecraft-studio.dir/native/window.cpp.o
+[ 88%] Building CXX object CMakeFiles/voicecraft-gui-test.dir/native/audio.cpp.o
+[ 91%] Linking CXX executable voicecraft-studio
+[ 94%] Built target voicecraft-studio
+[ 97%] Linking CXX executable voicecraft-gui-test
+[100%] Built target voicecraft-gui-test

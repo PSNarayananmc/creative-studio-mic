@@ -1,0 +1,7 @@
+{
+    "exports": "WAV mono, FLAC stereo, MP3 mono at 48 kHz",
+    "recorded_samples": 145440,
+    "rss": "VmRSS:\t   79452 kB",
+    "segments": 2,
+    "trimmed_samples": 67200
+}

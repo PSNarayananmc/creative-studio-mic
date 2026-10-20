@@ -1,0 +1,13 @@
+build/
+__pycache__/
+*.pyc
+build-native/
+packaging/stage/
+evidence/*.pcm
+evidence/*.mkv
+evidence/*.wav
+evidence/*.flac
+evidence/*.mp3
+dist/*-source.tar.gz
+dist/*-evidence.tar.gz
+dist/SHA256SUMS

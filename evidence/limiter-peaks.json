@@ -1,0 +1,18 @@
+{
+  "near_nyquist": {
+    "independent_true_peak_dbfs": -5.0,
+    "frames": 300
+  },
+  "fullscale_random": {
+    "independent_true_peak_dbfs": -3.9,
+    "frames": 300
+  },
+  "alternating_fullscale": {
+    "independent_true_peak_dbfs": -4.1,
+    "frames": 300
+  },
+  "transients": {
+    "independent_true_peak_dbfs": -4.9,
+    "frames": 300
+  }
+}

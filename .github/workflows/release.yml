@@ -1,0 +1,74 @@
+name: Ubuntu 20.04 native build and verification
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish v0.1.0 after all checks (never replace an existing release)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    container: ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Install build and test dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends build-essential cmake pkg-config qtbase5-dev libpulse-dev pulseaudio pulseaudio-utils xvfb xauth python3 python3-tk ffmpeg obs-studio xdotool git ca-certificates
+          useradd -m -s /bin/bash studio
+      - uses: actions/checkout@v4
+      - name: Native and retained legacy regression tests
+        run: |
+          set -eu
+          mkdir -p evidence
+          chmod 777 evidence
+          cmake -S . -B build-native -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-native -j2
+          (cd build-native && ctest --output-on-failure)
+          python3 tests/measure_peaks.py
+          runuser -u studio -- env VC_TEST_OBS=1 VC_SOAK_SECONDS=180 python3 "$PWD/tests/integration_native.py"
+          runuser -u studio -- xvfb-run -a "$PWD/build-native/voicecraft-gui-test"
+          ./scripts/build.sh
+          python3 -m unittest discover -s tests -v
+      - name: Build and install native package
+        run: |
+          set -eu
+          ./scripts/package-native.sh
+          apt-get install -y ./dist/voicecraft-studio_0.1.0_amd64.deb
+          runuser -u studio -- voicecraft-studio --version
+          runuser -u studio -- xvfb-run -a voicecraft-studio --gui-smoke-test
+          dpkg-query -W > evidence/ubuntu-dependency-versions.txt
+          sha256sum dist/voicecraft-studio_0.1.0_amd64.deb > dist/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voicecraft-ubuntu-20.04-amd64
+          path: |
+            dist/voicecraft-studio_0.1.0_amd64.deb
+            dist/SHA256SUMS
+            evidence/
+  publish:
+    needs: verify
+    if: github.event_name == 'workflow_dispatch' && inputs.publish
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: voicecraft-ubuntu-20.04-amd64
+          path: release-artifacts
+      - name: Publish a new release without replacement
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          test -z "$(git ls-remote --tags origin refs/tags/v0.1.0)"
+          gh release create v0.1.0 --target "$GITHUB_SHA" --title 'VoiceCraft Studio 0.1.0 — Ubuntu 20.04 amd64' --notes-file docs/RELEASE_NOTES.md release-artifacts/dist/voicecraft-studio_0.1.0_amd64.deb release-artifacts/dist/SHA256SUMS

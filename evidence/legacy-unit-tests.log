@@ -1,0 +1,28 @@
+test_clipping (test_core.PCMTests) ... ok
+test_counts_silence (test_core.PCMTests) ... ok
+test_deterministic_noise (test_core.PCMTests) ... ok
+test_dry_alignment (test_core.PCMTests) ... ok
+test_invalid_and_truncated (test_core.PCMTests) ... ok
+test_mixture_alignment (test_core.PCMTests) ... ok
+test_wet_processing_delay (test_core.PCMTests) ... ok
+test_child_failure (test_core.RoutingTests) ... ok
+test_cleanup_ownership_and_children (test_core.RoutingTests) ... ok
+test_disconnect (test_core.RoutingTests) ... ok
+test_interrupted_load_cleanup (test_core.RoutingTests) ... ok
+test_pa13_text (test_core.RoutingTests) ... ok
+test_process_start_rollback (test_core.RoutingTests) ... ok
+test_python38_syntax (test_core.RoutingTests) ... ok
+test_rollback (test_core.RoutingTests) ... ok
+test_single_instance (test_core.RoutingTests) ... ok
+test_input_clip_warning (test_core.VoiceTests) ... ok
+test_loud_voice_is_compressed (test_core.VoiceTests) ... ok
+test_peak_limiter_on_sustained_and_transient_audio (test_core.VoiceTests) ... ok
+test_podcast_delay (test_core.VoiceTests) ... ok
+test_rumble_is_reduced (test_core.VoiceTests) ... ok
+test_silence_and_profile_arguments (test_core.VoiceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.785s
+
+OK
+Synthetic white-noise output/input power ratio: 0.214007

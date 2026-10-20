@@ -1,0 +1,22 @@
+{"source":"","status":"STOPPED"}
+{"source":"voicecraft_source_c214a20931894fb6abf2b4112b3c02ad","status":"Connecting audio streams…"}
+{"source":"voicecraft_source_c214a20931894fb6abf2b4112b3c02ad","status":"READY FOR OBS"}
+{"source":"voicecraft_source_c214a20931894fb6abf2b4112b3c02ad","status":"STOPPED"}
+{"source":"voicecraft_source_c214a20931894fb6abf2b4112b3c02ad","status":"STOPPED"}
+{"source":"","status":"STOPPED"}
+{"source":"voicecraft_source_a549d9f826f94f13b84910af00ac1bd0","status":"Connecting audio streams…"}
+{"source":"voicecraft_source_a549d9f826f94f13b84910af00ac1bd0","status":"STOPPED"}
+{"source":"voicecraft_source_a549d9f826f94f13b84910af00ac1bd0","status":"STOPPED"}
+{"source":"","status":"STOPPED"}
+{"source":"voicecraft_source_d3f548dc529543baa1e95b08a86f545e","status":"Connecting audio streams…"}
+{"source":"voicecraft_source_d3f548dc529543baa1e95b08a86f545e","status":"Waiting for microphone / audio server. Retrying…"}
+{"source":"voicecraft_source_d3f548dc529543baa1e95b08a86f545e","status":"Selected microphone is disconnected. Reconnect it or select another device."}
+{"source":"voicecraft_source_d3f548dc529543baa1e95b08a86f545e","status":"Waiting for microphone / audio server. Retrying…"}
+{"source":"voicecraft_source_70e626152b8d481c9cd3390fe804b4e3","status":"Connecting audio streams…"}
+{"source":"voicecraft_source_70e626152b8d481c9cd3390fe804b4e3","status":"Waiting for microphone / audio server. Retrying…"}
+{"source":"voicecraft_source_70e626152b8d481c9cd3390fe804b4e3","status":"Connection failure: Connection refused\npa_context_connect() failed: Connection refused"}
+{"source":"voicecraft_source_70e626152b8d481c9cd3390fe804b4e3","status":"Waiting for microphone / audio server. Retrying…"}
+{"source":"voicecraft_source_76da7f1cce69496ba3d34782f671e8b2","status":"Connecting audio streams…"}
+{"source":"voicecraft_source_76da7f1cce69496ba3d34782f671e8b2","status":"READY FOR OBS"}
+{"source":"voicecraft_source_76da7f1cce69496ba3d34782f671e8b2","status":"STOPPED"}
+{"source":"voicecraft_source_76da7f1cce69496ba3d34782f671e8b2","status":"STOPPED"}

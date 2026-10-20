@@ -1,0 +1,93 @@
+name: Ubuntu 20.04 build, test and release
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish v1.0.2 after verification
+        type: boolean
+        default: false
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    container: ubuntu:20.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Install Ubuntu 20.04 build and test dependencies
+        run: |
+          apt-get update
+          apt-get install -y build-essential python3 python3-tk pulseaudio pulseaudio-utils xvfb xauth git ca-certificates
+          useradd --create-home --shell /bin/bash cmtest
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build and test on Ubuntu 20.04 / PulseAudio 13
+        run: |
+          cat /etc/os-release
+          python3 --version
+          pulseaudio --version
+          ./scripts/build.sh
+          python3 -m unittest discover -s tests -v
+          runuser -u cmtest -- python3 tests/integration_audio.py
+          runuser -u cmtest -- xvfb-run -a python3 src/creative_mic.py --gui-smoke-test
+      - name: Package and install
+        run: |
+          ./scripts/package.sh
+          apt-get install -y ./dist/creative-mic_1.0.2_amd64.deb
+          creative-mic --version
+          creative-mic --help
+          runuser -u cmtest -- xvfb-run -a creative-mic --gui-smoke-test
+          dpkg-deb --info dist/creative-mic_1.0.2_amd64.deb
+          ar t dist/creative-mic_1.0.2_amd64.deb
+          ldd /usr/lib/creative-mic/creative-mic-filter
+          python3 -c "import subprocess; p=subprocess.run(['/usr/lib/creative-mic/creative-mic-filter'],input=bytes(960),capture_output=True,check=True); assert p.stdout==bytes(960)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ubuntu-20.04-deb
+          path: dist/creative-mic_1.0.2_amd64.deb
+  publish:
+    needs: verify
+    if: (github.event_name == 'workflow_dispatch' && inputs.publish) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[publish-v1.0.2]'))
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: ubuntu-20.04-deb
+          path: dist
+      - name: Publish verified package, source and checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          existing_tag=$(git ls-remote --tags origin refs/tags/v1.0.2)
+          if [ -n "$existing_tag" ]; then
+            echo 'v1.0.2 already exists; refusing replacement'; exit 1
+          fi
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+          req=urllib.request.Request('https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/releases/tags/v1.0.2',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN']})
+          try:
+              urllib.request.urlopen(req)
+          except urllib.error.HTTPError as exc:
+              if exc.code != 404: raise
+          else:
+              raise SystemExit('Release already exists; refusing replacement')
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add dist/creative-mic_1.0.2_amd64.deb
+          git commit -m 'Retain verified Ubuntu 20.04 installer in dist'
+          git push origin HEAD:main
+          git tag v1.0.2
+          git push origin v1.0.2
+          git archive --format=tar.gz --prefix=creative-mic-1.0.2/ -o dist/creative-mic-1.0.2-source.tar.gz v1.0.2
+          cd dist
+          sha256sum creative-mic_1.0.2_amd64.deb creative-mic-1.0.2-source.tar.gz > SHA256SUMS
+          gh release create v1.0.2 --verify-tag --title 'Creative Mic 1.0.2 — Ubuntu 20.04 LTS' --notes 'Adds a default Podcast profile with rumble filtering, gentle EQ, compression and a -3 dBFS sample-peak limiter, plus input clipping warnings. Clean profile retains noise suppression only. No echo or reverb effects are added. Built, installed and tested in Ubuntu 20.04 with Python 3.8 and PulseAudio 13. No physical microphone or call-quality verification; no speaker isolation, echo cancellation, or dereverberation.' creative-mic_1.0.2_amd64.deb creative-mic-1.0.2-source.tar.gz SHA256SUMS

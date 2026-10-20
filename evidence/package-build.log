@@ -1,0 +1,31 @@
+[  2%] Automatic MOC for target rnnoise
+[  2%] Built target rnnoise_autogen
+[ 25%] Built target rnnoise
+[ 28%] Automatic MOC for target voicecraft-dsp
+[ 28%] Built target voicecraft-dsp_autogen
+[ 37%] Built target voicecraft-dsp
+[ 40%] Automatic MOC for target voicecraft-pcm
+[ 40%] Built target voicecraft-pcm_autogen
+[ 42%] Automatic MOC for target voicecraft-gui-test
+[ 45%] Automatic MOC for target voicecraft-studio
+[ 45%] Built target voicecraft-gui-test_autogen
+[ 45%] Built target voicecraft-studio_autogen
+[ 48%] Automatic MOC for target voicecraft-dsp-test
+[ 48%] Built target voicecraft-dsp-test_autogen
+[ 57%] Built target voicecraft-pcm
+[ 74%] Built target voicecraft-gui-test
+[ 91%] Built target voicecraft-studio
+[100%] Built target voicecraft-dsp-test
+-- Install configuration: "Release"
+-- Installing: /src/build-native/package/usr/bin/voicecraft-studio
+-- Installing: /src/build-native/package/usr/share/applications/voicecraft-studio.desktop
+-- Installing: /src/build-native/package/usr/share/icons/hicolor/scalable/apps/voicecraft-studio.svg
+-- Installing: /src/build-native/package/usr/share/doc/voicecraft-studio/LICENSE
+-- Installing: /src/build-native/package/usr/share/doc/voicecraft-studio/COPYING
+-- Installing: /src/build-native/package/usr/share/doc/voicecraft-studio/README.md
+-- Installing: /src/build-native/package/usr/share/doc/voicecraft-studio/VERIFICATION.md
+-- Installing: /src/build-native/package/usr/share/doc/voicecraft-studio/USER_GUIDE.md
+-- Installing: /src/build-native/package/usr/share/doc/voicecraft-studio/OBS_GUIDE.md
+-- Installing: /src/build-native/package/usr/share/doc/voicecraft-studio/TROUBLESHOOTING.md
+-- Installing: /src/build-native/package/usr/share/doc/voicecraft-studio/ARCHITECTURE.md
+dpkg-deb: building package 'voicecraft-studio' in 'dist/voicecraft-studio_0.1.0_amd64.deb'.

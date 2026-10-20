@@ -1,0 +1,14 @@
+ new Debian package, version 2.0.
+ size 206502 bytes: control archive=534 bytes.
+     644 bytes,    11 lines      control              
+ Package: voicecraft-studio
+ Version: 0.1.0
+ Section: sound
+ Priority: optional
+ Architecture: amd64
+ Maintainer: PSNarayananmc <PSNarayananmc@users.noreply.github.com>
+ Depends: libc6 (>= 2.27), libgcc-s1 (>= 3.0), libpulse0 (>= 0.99.1), libqt5core5a (>= 5.12.2), libqt5gui5 (>= 5.8.0) | libqt5gui5-gles (>= 5.8.0), libqt5widgets5 (>= 5.2.0~alpha1), libstdc++6 (>= 5.2), pulseaudio-utils (>= 1:13.0), ffmpeg
+ Recommends: pulseaudio | pipewire-pulse
+ Description: Native offline podcast microphone studio for OBS
+  Qt 5 and C++17 audio processing with bundled RNNoise, virtual microphone
+  routing, voice shaping, local recording and edited audio export.

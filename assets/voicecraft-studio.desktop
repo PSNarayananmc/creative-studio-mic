@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=VoiceCraft Studio
+Comment=Offline podcast microphone processing for OBS
+Exec=voicecraft-studio
+Icon=voicecraft-studio
+Terminal=false
+Categories=AudioVideo;Audio;Mixer;
